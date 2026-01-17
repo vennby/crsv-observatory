@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>World Map Explorer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #000;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      #map {
+        height: 100vh;
+        width: 100vw;
+        background: #000;
+      }
+
+      /* Search bar */
+      .search-container {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        width: 420px;
+      }
+
+      .search-container input {
+        width: 100%;
+        padding: 12px 18px;
+        border-radius: 30px;
+        border: 1px solid #c0c0c0;
+        background: rgba(0, 0, 0, 0.9);
+        color: #c0c0c0;
+        font-size: 15px;
+        outline: none;
+        text-align: center;
+      }
+
+      .search-container input::placeholder {
+        color: #888;
+      }
+
+      /* Leaflet overrides */
+      .leaflet-control-zoom {
+        display: none;
+      }
+
+      .leaflet-container {
+        background: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="search-container">
+      <input id="countrySearch" type="text" placeholder="Search country" />
+    </div>
+
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+      // Initialize map
+      const map = L.map("map", {
+        center: [20, 0],
+        zoom: 2,
+        minZoom: 2,
+        worldCopyJump: true,
+        zoomAnimation: true,
+      });
+
+      // Dark base (empty tile layer)
+      L.tileLayer("", {}).addTo(map);
+
+      let countryLayer;
+
+      // Style for countries
+      const baseCountryStyle = {
+        color: "#c0c0c0",
+        weight: 1,
+        fillColor: "#000",
+        fillOpacity: 1,
+      };
+
+      const highlightStyle = {
+        color: "#ffffff",
+        weight: 2,
+        fillOpacity: 0.15,
+      };
+
+      // Load GeoJSON (served from Flask static folder)
+      fetch("/static/world.geojson")
+        .then((res) => res.json())
+        .then((data) => {
+          countryLayer = L.geoJSON(data, {
+            style: baseCountryStyle,
+            onEachFeature: (feature, layer) => {
+              layer.on({
+                click: () => zoomToCountry(feature, layer),
+                mouseover: (e) => e.target.setStyle(highlightStyle),
+                mouseout: (e) => countryLayer.resetStyle(e.target),
+              });
+            },
+          }).addTo(map);
+        });
+
+      function zoomToCountry(feature, layer) {
+        const bounds = layer.getBounds();
+        map.flyToBounds(bounds, {
+          duration: 1.5,
+          easeLinearity: 0.25,
+        });
+      }
+
+      // Search functionality
+      const searchInput = document.getElementById("countrySearch");
+
+      searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase();
+        if (!countryLayer) return;
+
+        countryLayer.eachLayer((layer) => {
+          const name = layer.feature.properties.name?.toLowerCase() || "";
+          if (query && name.includes(query)) {
+            layer.setStyle(highlightStyle);
+          } else {
+            countryLayer.resetStyle(layer);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
