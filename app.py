@@ -11,6 +11,10 @@ with open("data/countries.json", encoding="utf-8") as f:
 
 @app.route("/")
 def index():
+    return render_template("index.html")
+
+@app.route("/map")
+def map_view():
     return render_template("world_map.html")
 
 @app.route("/api/country/<name>")

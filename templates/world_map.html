@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>World Map Explorer</title>
+    <title>CRSV Map Explorer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Leaflet CSS -->
@@ -61,9 +61,38 @@
       .leaflet-container {
         background: #000;
       }
+
+      /* Navigation */
+      .nav-home {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+        background: linear-gradient(135deg, #ff6a00, #ee0979);
+        color: #fff;
+        padding: 14px 28px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        box-shadow: 0 4px 16px rgba(255, 106, 0, 0.2);
+      }
+
+      .nav-home:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(255, 106, 0, 0.4);
+      }
     </style>
   </head>
   <body>
+    <a href="/" class="nav-home">← Home</a>
+    
     <div class="search-container">
       <input id="countrySearch" type="text" placeholder="Search country" />
     </div>

@@ -1,5 +1,124 @@
-{% extends "base.html" %} {% block css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
-{% endblock %} {% block body %}
-<h1>Welcome to the CRSV Observatory!</h1>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRSV Observatory</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Hero Section -->
+        <section class="section-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-title">
+                        <h1>CRSV Observatory</h1>
+                    </div>
+                    <p class="hero-subtitle">
+                        Documenting and analyzing conflict-related sexual violence across time and space.
+                    </p>
+                    <p class="hero-description">
+                        The CRSV Observatory provides comprehensive data visualization, historical timelines, and geographical analysis of conflict-related sexual violence. Access our interactive tools to explore patterns, understand contexts, and support efforts to combat this grave violation of human rights.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section-features">
+            <div class="container">
+                <h2 class="section-title">Explore Our Tools</h2>
+                
+                <div class="features-grid">
+                    <!-- Timeline Feature -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 10H40V38H8V10Z" stroke="url(#gradient1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 14V6" stroke="url(#gradient1)" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M32 14V6" stroke="url(#gradient1)" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M8 22H40" stroke="url(#gradient1)" stroke-width="2" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#ff6a00;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#ee0979;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3>Historical Timeline</h3>
+                        <p>Explore documented incidents of conflict-related sexual violence throughout history. Follow a chronological journey through key events and their contexts.</p>
+                        <a href="/timeline" class="feature-link">
+                            View Timeline
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 8H13M10 5L13 8L10 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Map Feature -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="20" r="14" stroke="url(#gradient2)" stroke-width="2"/>
+                                <path d="M24 6V34M10 20H38" stroke="url(#gradient2)" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="24" cy="20" r="3" fill="url(#gradient2)"/>
+                                <path d="M24 34C20 38 16 40 16 44M24 34C28 38 32 40 32 44" stroke="url(#gradient2)" stroke-width="2" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#ff6a00;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#ee0979;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3>Geographic Explorer</h3>
+                        <p>Interact with a world map showing locations affected by conflict-related sexual violence. Search for country-specific information and context.</p>
+                        <a href="/map" class="feature-link">
+                            Explore Map
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 8H13M10 5L13 8L10 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section-about">
+            <div class="container">
+                <div class="about-content">
+                    <h2>About CRSV Observatory</h2>
+                    <p>
+                        Conflict-Related Sexual Violence (CRSV) is a systematic pattern of abuse used as a weapon of war and a tactic of conflict. The CRSV Observatory is dedicated to documenting these atrocities, understanding their patterns, and supporting global efforts toward accountability and prevention.
+                    </p>
+                    <p>
+                        Through data visualization, historical analysis, and geographic mapping, we provide researchers, activists, and policymakers with the tools they need to understand and address this grave violation of human rights.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section-cta">
+            <div class="container">
+                <h2>Get Started</h2>
+                <p>Choose how you'd like to explore CRSV data</p>
+                <div class="cta-buttons">
+                    <a href="/timeline" class="btn btn-primary">View Timeline</a>
+                    <a href="/map" class="btn btn-secondary">Explore Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="section-footer">
+            <div class="container">
+                <p>&copy; 2026 CRSV Observatory. Dedicated to documenting and addressing conflict-related sexual violence.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
