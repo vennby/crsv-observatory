@@ -21,5 +21,15 @@ def country_info(name):
     })
     return jsonify(country)
 
+@app.route("/timeline")
+def timeline():
+    return render_template("timeline.html")
+
+@app.route("/data/timeline.json")
+def timeline_events():
+    with open("data/timeline.json", encoding="utf-8") as f:
+        timeline_data = json.load(f)
+    return jsonify(timeline_data)
+
 if __name__ == '__main__':
     app.run()

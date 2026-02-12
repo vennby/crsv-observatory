@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRSV Observatory</title>
+    <link rel="stylesheet" href="../static/css/timeline.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="section-timeline-heading">
+            <div class="container">
+                <div class="padding-vertical-xlarge">
+                    <div class="timeline-main-heading-wrapper">
+                        <div class="margin-bottom-medium">
+                            <h2>CRSV</h2>
+                        </div>
+                        <p class="paragraph-large">
+                            Highlighting efforts to combat this grave violation of human rights.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-timeline">
+            <div class="container">
+                <div class="timeline-component" id="timeline-component">
+                    <div class="timeline-progress">
+                        <div class="timeline-progress-bar"></div>
+                    </div>
+                    <div class="overlay-fade-top"></div>
+                    <div class="overlay-fade-bottom"></div>
+                </div>
+            </div>
+            <div style="height: 50vh;"></div>
+        </div>
+    </div>
+
+    <script>
+        async function loadTimelineData() {
+            try {
+                const response = await fetch('/data/timeline.json');
+                const events = await response.json();
+                const timelineComponent = document.getElementById('timeline-component');
+                
+                events.forEach((event, index) => {
+                    const timelineItem = document.createElement('div');
+                    timelineItem.className = 'timeline-item';
+                    
+                    // Add alternate class for even indices
+                    if (index % 2 === 0) {
+                        timelineItem.classList.add('timeline-item-left');
+                    } else {
+                        timelineItem.classList.add('timeline-item-right');
+                    }
+                    
+                    const marginClass = index === events.length - 1 ? 'margin-bottom-medium' : 'margin-bottom-xlarge';
+                    
+                    timelineItem.innerHTML = `
+                        <div class="timeline-left">
+                            <div class="timeline-date-text">${event.date}</div>
+                        </div>
+                        <div class="timeline-centre">
+                            <div class="timeline-circle"></div>
+                        </div>
+                        <div class="timeline-right">
+                            <div class="${marginClass}">
+                                <div class="timeline-text">
+                                    ${event.text}
+                                </div>
+                            </div>
+                            <div class="timeline-description">
+                                ${event.description}
+                            </div>
+                            <div class="timeline-image-wrapper">
+                                <img src="${event.image}" loading="lazy" alt="${event.altText}" />
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Insert before the overlay divs
+                    const overlayTop = timelineComponent.querySelector('.overlay-fade-top');
+                    timelineComponent.insertBefore(timelineItem, overlayTop);
+                });
+            } catch (error) {
+                console.error('Error loading timeline data:', error);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadTimelineData);
+    </script>
+</body>
+</html>
