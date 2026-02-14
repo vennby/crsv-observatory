@@ -1,0 +1,232 @@
+/* ============================================
+   Country Details Page Styles
+   ============================================ */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #0a0a0a;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+/* ============================================
+   Navbar
+   ============================================ */
+.navbar {
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 10, 0.95),
+    rgba(10, 10, 10, 0.9)
+  );
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 106, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.nav-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ff6a00;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-back {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 106, 0, 0.3);
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nav-back:hover {
+  background: rgba(255, 106, 0, 0.1);
+  border-color: #ff6a00;
+  color: #ff6a00;
+}
+
+/* ============================================
+   Main Container
+   ============================================ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+/* ============================================
+   Header Section
+   ============================================ */
+.header-section {
+  margin-bottom: 48px;
+}
+
+.country-name {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.country-description {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #ccc;
+  max-width: 800px;
+}
+
+/* ============================================
+   Section Styles
+   ============================================ */
+.section {
+  margin-bottom: 48px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(255, 106, 0, 0.3);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-title span {
+  color: #ff6a00;
+  font-size: 28px;
+}
+
+/* ============================================
+   Event Cards Grid
+   ============================================ */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.event-card {
+  background: rgba(255, 106, 0, 0.05);
+  border: 1px solid rgba(255, 106, 0, 0.2);
+  border-radius: 8px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.event-card:hover {
+  border-color: #ff6a00;
+  background: rgba(255, 106, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(255, 106, 0, 0.15);
+}
+
+.event-date {
+  color: #ff6a00;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.event-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.event-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #aaa;
+  margin-bottom: 16px;
+}
+
+.event-link {
+  color: #ff6a00;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.event-link:hover {
+  gap: 10px;
+}
+
+/* ============================================
+   No Events State
+   ============================================ */
+.no-events {
+  padding: 32px;
+  text-align: center;
+  color: #666;
+  background: rgba(255, 106, 0, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 106, 0, 0.1);
+}
+
+/* ============================================
+   Back to Map Button
+   ============================================ */
+.back-to-map {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  margin-top: 32px;
+}
+
+.back-to-map:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(255, 106, 0, 0.3);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 768px) {
+  .country-name {
+    font-size: 32px;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 24px 16px;
+  }
+}

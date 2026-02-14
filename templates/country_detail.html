@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ country_name }} - CRSV Observatory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/country_detail.css') }}"
+    />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="nav-title">CRSV Observatory</div>
+      <a href="/map" class="nav-back">← Back to Map</a>
+    </div>
+
+    <div class="container">
+      <div class="header-section">
+        <h1 class="country-name">{{ country_name }}</h1>
+        <p class="country-description">{{ country_info.description }}</p>
+      </div>
+
+      {% if related_events %}
+      <div class="section">
+        <div class="section-title"><span>⚠️</span> Related CRSV Events</div>
+        <div class="events-grid">
+          {% for event in related_events %}
+          <div class="event-card">
+            <div class="event-date">{{ event.date }}</div>
+            <div class="event-title">{{ event.text }}</div>
+            <div class="event-description">{{ event.description }}</div>
+            <a href="/event/{{ event.id }}" class="event-link">
+              Learn More →
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% else %}
+      <div class="section">
+        <div class="section-title"><span>⚠️</span> Related CRSV Events</div>
+        <div class="no-events">
+          <p>No documented CRSV events for this country in our database.</p>
+        </div>
+      </div>
+      {% endif %}
+
+      <a href="/map" class="back-to-map">← Back to Map</a>
+    </div>
+  </body>
+</html>

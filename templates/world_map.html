@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,263 +11,66 @@
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     />
 
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        background: #0a0a0a;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-
-      #map {
-        height: 100vh;
-        width: 100vw;
-        background: #0a0a0a;
-      }
-
-      /* Search bar container */
-      .search-container {
-        position: absolute;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 1000;
-        width: 95%;
-        max-width: 420px;
-      }
-
-      .search-container input {
-        width: 100%;
-        padding: 14px 20px;
-        border-radius: 8px;
-        border: 2px solid transparent;
-        background: rgba(10, 10, 10, 0.95);
-        color: #fff;
-        font-size: 15px;
-        outline: none;
-        text-align: left;
-        letter-spacing: 0.5px;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-      }
-
-      .search-container input::placeholder {
-        color: #ffffffa6;
-      }
-
-      .search-container input:focus {
-        border-color: #ff6a00;
-        background: rgba(10, 10, 10, 0.98);
-        box-shadow: 0 0 20px rgba(255, 106, 0, 0.2);
-      }
-
-      .search-results-info {
-        position: absolute;
-        top: 70px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 999;
-        background: rgba(10, 10, 10, 0.95);
-        color: #fff;
-        padding: 12px 20px;
-        border-radius: 8px;
-        font-size: 14px;
-        border: 1px solid rgba(255, 106, 0, 0.2);
-        backdrop-filter: blur(10px);
-        display: none;
-        letter-spacing: 0.5px;
-      }
-
-      .search-results-info.active {
-        display: block;
-      }
-
-      /* Leaflet overrides */
-      .leaflet-control-zoom {
-        display: none;
-      }
-
-      .leaflet-container {
-        background: #0a0a0a;
-      }
-
-      /* Navigation */
-      .nav-home {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 1001;
-        background: linear-gradient(135deg, #ff6a00, #ee0979);
-        color: #fff;
-        padding: 14px 28px;
-        border-radius: 8px;
-        font-size: 15px;
-        font-weight: 700;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        text-transform: uppercase;
-        letter-spacing: 0.6px;
-        box-shadow: 0 4px 16px rgba(255, 106, 0, 0.2);
-      }
-
-      .nav-home:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 24px rgba(255, 106, 0, 0.4);
-      }
-
-      @media (max-width: 600px) {
-        .search-container {
-          width: 90%;
-          top: 70px;
-        }
-
-        .search-results-info {
-          top: 130px;
-        }
-
-        .search-container input {
-          font-size: 14px;
-          padding: 12px 16px;
-        }
-      }
-    </style>
+    <!-- Custom Styles -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/world_map.css') }}"
+    />
+    />
   </head>
   <body>
+    <!-- Navigation -->
     <a href="/" class="nav-home">← Home</a>
-    
+
     <div class="search-container">
       <input id="countrySearch" type="text" placeholder="Search countries..." />
     </div>
 
-    <div id="searchResults" class="search-results-info"></div>
+    <div id="searchResults" class="search-results-info">
+      <ul id="searchResultsList" class="search-results-list"></ul>
+    </div>
 
     <div id="map"></div>
 
-    <!-- Leaflet JS -->
+    <div id="sidePanel" class="side-panel">
+      <div class="panel-header">
+        <h2 id="panelCountryName"></h2>
+        <button class="panel-close" onclick="closePanel()">×</button>
+      </div>
+      <div class="panel-content">
+        <p id="panelCountryDescription" class="country-description"></p>
+        
+        <div id="basicInfoSection" class="info-section" style="display:none;">
+          <div class="info-title">Basic Information</div>
+          <div id="basicInfoContent" class="info-content"></div>
+        </div>
+        
+        <div id="statisticsSection" class="info-section" style="display:none;">
+          <div class="info-title">Key Statistics</div>
+          <div id="statisticsContent" class="info-content"></div>
+        </div>
+        
+        <div id="crsvEventsContainer" class="crsv-events-section" style="display:none;">
+          <div class="section-title">
+            <span>●</span> Related CRSV Events
+          </div>
+          <div id="crsvEventsList"></div>
+        </div>
+        
+        <div id="historicalContext" class="info-section" style="display:none;">
+          <div class="info-title">Historical Context</div>
+          <p id="historicalText" class="info-text"></p>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <button class="view-details-btn" onclick="viewCountryDetails()">View Full Details →</button>
+      </div>
+    </div>
+
+    <!-- Leaflet Library -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <script>
-      // Initialize map
-      const map = L.map("map", {
-        center: [20, 0],
-        zoom: 2,
-        minZoom: 2,
-        worldCopyJump: true,
-        zoomAnimation: true,
-      });
-
-      // Dark base (empty tile layer)
-      L.tileLayer("", {}).addTo(map);
-
-      let countryLayer;
-      let allLayers = [];
-
-      // Style for countries
-      const baseCountryStyle = {
-        color: "#ffffff40",
-        weight: 1,
-        fillColor: "#1a1a1a",
-        fillOpacity: 0.8,
-      };
-
-      const searchHighlightStyle = {
-        color: "#ff6a00",
-        weight: 2.5,
-        fillColor: "#ff6a00",
-        fillOpacity: 0.3,
-      };
-
-      const hoverStyle = {
-        color: "#fff",
-        weight: 2,
-        fillOpacity: 0.15,
-      };
-
-      // Load GeoJSON (served from Flask static folder)
-      fetch("/static/world.geojson")
-        .then((res) => res.json())
-        .then((data) => {
-          countryLayer = L.geoJSON(data, {
-            style: baseCountryStyle,
-            onEachFeature: (feature, layer) => {
-              allLayers.push({ layer, feature });
-              layer.on({
-                click: () => zoomToCountry(feature, layer),
-                mouseover: (e) => {
-                  if (!e.target.isSearchHighlighted) {
-                    e.target.setStyle(hoverStyle);
-                  }
-                },
-                mouseout: (e) => {
-                  if (!e.target.isSearchHighlighted) {
-                    countryLayer.resetStyle(e.target);
-                  }
-                },
-              });
-            },
-          }).addTo(map);
-        });
-
-      function zoomToCountry(feature, layer) {
-        const bounds = layer.getBounds();
-        map.flyToBounds(bounds, {
-          duration: 1.5,
-          easeLinearity: 0.25,
-        });
-      }
-
-      // Search functionality
-      const searchInput = document.getElementById("countrySearch");
-      const searchResults = document.getElementById("searchResults");
-
-      searchInput.addEventListener("input", () => {
-        const query = searchInput.value.toLowerCase().trim();
-        let matchCount = 0;
-
-        if (!countryLayer) return;
-
-        countryLayer.eachLayer((layer) => {
-          const name = layer.feature.properties.name?.toLowerCase() || "";
-          const isMatch = query && name.includes(query);
-
-          if (isMatch) {
-            layer.setStyle(searchHighlightStyle);
-            layer.isSearchHighlighted = true;
-            matchCount++;
-          } else {
-            countryLayer.resetStyle(layer);
-            layer.isSearchHighlighted = false;
-          }
-        });
-
-        // Update search results info
-        if (query) {
-          searchResults.classList.add("active");
-          if (matchCount === 0) {
-            searchResults.textContent = `No countries found matching "${query}"`;
-          } else if (matchCount === 1) {
-            searchResults.textContent = `Found 1 country`;
-          } else {
-            searchResults.textContent = `Found ${matchCount} countries`;
-          }
-        } else {
-          searchResults.classList.remove("active");
-        }
-      });
-
-      // Clear search on focus
-      searchInput.addEventListener("focus", () => {
-        searchInput.select();
-      });
-    </script>
+    <!-- Application Script -->
+    <script src="{{ url_for('static', filename='js/world_map.js') }}"></script>
   </body>
 </html>

@@ -1,10 +1,50 @@
 {
   "India": {
     "name": "India",
-    "description": "India is a South Asian country with a population exceeding 1.4 billion and a diverse cultural and geographic landscape."
+    "description": "India is a South Asian country with a population exceeding 1.4 billion and a diverse cultural and geographic landscape.",
+    "region": "South Asia",
+    "population": "1.4 billion+",
+    "capital": "New Delhi",
+    "historicalContext": "India experienced one of the largest mass migrations and communal violence in human history following independence from British colonial rule in 1947. The partition of British India led to unprecedented displacement and violence, particularly affecting women and minorities."
+  },
+  "Japan": {
+    "name": "Japan",
+    "description": "Japan is an island nation in East Asia with a rich cultural heritage and advanced economy.",
+    "region": "East Asia",
+    "population": "125 million",
+    "capital": "Tokyo",
+    "historicalContext": "During World War II, Japan's imperial military engaged in systematic exploitation and violence against civilian populations across occupied territories, particularly in Asia and the Pacific region."
+  },
+  "China": {
+    "name": "China",
+    "description": "China is the world's most populous country and the second-largest economy, located in East Asia.",
+    "region": "East Asia",
+    "population": "1.4 billion+",
+    "capital": "Beijing",
+    "historicalContext": "China experienced significant conflicts and violence during the Second Sino-Japanese War and subsequent periods, with major impacts on civilian populations."
+  },
+  "Pakistan": {
+    "name": "Pakistan",
+    "description": "Pakistan is a South Asian country with a significant strategic location and diverse ethnic and religious populations.",
+    "region": "South Asia",
+    "population": "230+ million",
+    "capital": "Islamabad",
+    "historicalContext": "Pakistan was created during the partition of British India in 1947, an event marked by communal violence and mass displacement affecting millions of people."
+  },
+  "Bangladesh": {
+    "name": "Bangladesh",
+    "description": "Bangladesh is a densely populated South Asian nation known for its rivers and agricultural heritage.",
+    "region": "South Asia",
+    "population": "170+ million",
+    "capital": "Dhaka",
+    "historicalContext": "Originally East Pakistan, Bangladesh gained independence in 1971. The region experienced widespread violence and displacement during the partition of India in 1947."
   },
   "France": {
     "name": "France",
-    "description": "France is a Western European nation known for its art, history, and global influence."
+    "description": "France is a Western European nation known for its art, history, and global influence.",
+    "region": "Western Europe",
+    "population": "68 million",
+    "capital": "Paris",
+    "historicalContext": "France has played a significant role in modern European history, including involvement in both World Wars and colonial activities."
   }
 }
