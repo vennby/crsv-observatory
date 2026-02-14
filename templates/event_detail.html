@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - CRSV Observatory</title>
+    <link rel="stylesheet" href="../static/css/timeline.css">
+    <link rel="stylesheet" href="../static/css/event_detail.css">
+</head>
+<body>
+    <a href="/timeline" class="nav-home">← Timeline</a>
+    
+    <div class="page-wrapper">
+        <!-- Event Header Section -->
+        <div class="section-event-heading">
+            <div class="container">
+                <div class="padding-vertical-xlarge">
+                    <div class="event-heading-wrapper">
+                        <div class="event-date-badge">{{ date }}</div>
+                        <h1 class="event-title">{{ title }}</h1>
+                        <p class="event-summary">{{ summary }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Event Content Section -->
+        <div class="section-event-content">
+            <div class="container">
+                <div class="event-content-wrapper">
+                    <!-- Main Image -->
+                    <div class="event-image-container">
+                        <img src="{{ image }}" alt="{{ altText }}" class="event-main-image" />
+                    </div>
+
+                    <!-- Detailed Description -->
+                    <div class="event-section">
+                        <h2>Overview</h2>
+                        <p class="event-detailed-text">{{ detailed_description }}</p>
+                    </div>
+
+                    <!-- Key Metrics -->
+                    <div class="event-section">
+                        <h2>Key Metrics</h2>
+                        <div class="metrics-grid">
+                            {% for metric_key, metric_value in metrics.items() %}
+                                <div class="metric-card">
+                                    <div class="metric-label">{{ metric_key.replace('_', ' ').title() }}</div>
+                                    {% if metric_value is string %}
+                                        <div class="metric-value">{{ metric_value }}</div>
+                                    {% elif metric_value is number %}
+                                        <div class="metric-value">{{ metric_value }}</div>
+                                    {% else %}
+                                        <div class="metric-value">{{ metric_value | join(', ') if metric_value is iterable else metric_value }}</div>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Impact Section -->
+                    {% if impact %}
+                    <div class="event-section">
+                        <h2>Impact & Consequences</h2>
+                        <div class="impact-grid">
+                            {% for impact_key, impact_value in impact.items() %}
+                                <div class="impact-item">
+                                    <h3>{{ impact_key.replace('_', ' ').title() }}</h3>
+                                    <p>{{ impact_value }}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Historical Context -->
+                    {% if historical_context %}
+                    <div class="event-section">
+                        <h2>Historical Context</h2>
+                        <p class="event-detailed-text">{{ historical_context }}</p>
+                    </div>
+                    {% endif %}
+
+                    <!-- Detailed Analysis -->
+                    {% if detailed_analysis %}
+                    <div class="event-section">
+                        <h2>Detailed Analysis</h2>
+                        <div class="analysis-grid">
+                            {% for analysis_key, analysis_value in detailed_analysis.items() %}
+                                <div class="analysis-item">
+                                    <h3>{{ analysis_key.replace('_', ' ').title() }}</h3>
+                                    {% if analysis_value is string %}
+                                        <p>{{ analysis_value }}</p>
+                                    {% else %}
+                                        <p>{{ analysis_value | join('; ') if analysis_value is iterable else analysis_value }}</p>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Recognition Timeline -->
+                    {% if recognition_timeline %}
+                    <div class="event-section">
+                        <h2>Recognition & Documentation Timeline</h2>
+                        <div class="recognition-timeline">
+                            {% for event in recognition_timeline %}
+                                <div class="recognition-item">
+                                    <div class="recognition-marker"></div>
+                                    <p>{{ event }}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Current Status -->
+                    {% if current_status %}
+                    <div class="event-section">
+                        <h2>Current Status</h2>
+                        <p class="event-detailed-text">{{ current_status }}</p>
+                    </div>
+                    {% endif %}
+
+                    <!-- References -->
+                    {% if references %}
+                    <div class="event-section">
+                        <h2>References & Further Reading</h2>
+                        <ul class="references-list">
+                            {% for reference in references %}
+                                <li>{{ reference }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

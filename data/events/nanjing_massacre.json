@@ -1,0 +1,41 @@
+{
+  "id": "nanjing_massacre",
+  "title": "The Nanjing Massacre",
+  "date": "1937",
+  "summary": "A six-week period of large-scale killing, rape, and arson committed by Japanese military forces against the civilian population. The scale and brutality of the atrocities shocked the international community.",
+  "image": "https://th.bing.com/th/id/R.0bd6dab56ecf6fc22de011008d3f49f0?rik=0Lwl535T%2bIB6qA&riu=http%3a%2f%2fcdn.historycollection.co%2fwp-content%2fuploads%2f2017%2f08%2fBettmann-CORBIS-Chinese-prisoners-are-buried-alive-by-their-Japanese-captors-outside-the-city-of-Nanjing..jpg&ehk=bpD2RULKFp%2byMg8ivUJwvSv4jXe25ueJQBF9H4lPtVY%3d&risl=&pid=ImgRaw&r=0",
+  "altText": "The Nanjing Massacre",
+  "detailed_description": "The Nanjing Massacre, also known as the Rape of Nanking, occurred between December 1937 and January 1938 when the Imperial Japanese Army captured the Chinese capital. During this six-week period, Japanese troops engaged in systematic mass killing, rape, and destruction. The fall of Nanjing marked a turning point in the Second Sino-Japanese War and became a symbol of Japanese military brutality.",
+  "metrics": {
+    "estimated_deaths": "200,000-350,000",
+    "rape_victims": "20,000-80,000",
+    "civilian_population_before": "1,000,000",
+    "civilian_population_after": "200,000-250,000",
+    "duration_weeks": 6,
+    "territory_of_effect": "Nanjing and surrounding areas",
+    "recorded_incidents": "Over 6,000 documented cases"
+  },
+  "impact": {
+    "immediate_casualties": "Estimated 200,000-350,000 deaths, including civilians and soldiers",
+    "displacement": "Over 750,000 people fled the city",
+    "property_destruction": "Approximately one-third of buildings destroyed or damaged",
+    "sexual_violence": "Systematic rape used as weapon of war targeting women and children",
+    "psychological_trauma": "Survivors and descendants afflicted with lasting trauma"
+  },
+  "historical_context": "The Nanjing Massacre occurred at a critical moment in the Second Sino-Japanese War, following Japan's swift military victory in northern China. Scholars attribute the brutality partly to racial ideology, military culture, and dehumanization of the enemy.",
+  "recognition_timeline": [
+    "December 13, 1937: Japanese forces enter Nanjing",
+    "January 1938: Six weeks of massacre ends",
+    "1945: Tokyo Trial documents atrocities",
+    "1985: Memorial established; Japan passes curriculum standards minimizing events",
+    "1995-1997: International symposium on Nanjing Massacre",
+    "2014: Japan Education Ministry continues to downplay or deny certain aspects",
+    "Present: Ongoing disputes over historical interpretation and education"
+  ],
+  "current_status": "Memorial Hall established in Nanjing; International recognition; Significant historical and political disputes continue between China and Japan regarding the scale and characterization of events",
+  "references": [
+    "Iris Chang, The Rape of Nanking: The Forgotten Holocaust of World War II",
+    "Joshua Fogel (ed.), The Nanjing Massacre in History and Historiography",
+    "Marjorie Dorn, Japan War Crimes Research Center"
+  ]
+}

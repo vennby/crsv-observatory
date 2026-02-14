@@ -35,5 +35,14 @@ def timeline_events():
         timeline_data = json.load(f)
     return jsonify(timeline_data)
 
+@app.route("/event/<event_id>")
+def event_detail(event_id):
+    try:
+        with open(f"data/events/{event_id}.json", encoding="utf-8") as f:
+            event_data = json.load(f)
+        return render_template("event_detail.html", **event_data)
+    except FileNotFoundError:
+        return "Event not found", 404
+
 if __name__ == '__main__':
     app.run()

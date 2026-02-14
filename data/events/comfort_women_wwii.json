@@ -1,0 +1,39 @@
+{
+  "id": "comfort_women_wwii",
+  "title": "The 'Comfort Women' of WWII",
+  "date": "1932",
+  "summary": "A systematic and widespread campaign of sexual enslavement that affected hundreds of thousands of women throughout occupied territories. This represents one of the most severe violations of human rights during wartime.",
+  "image": "https://th.bing.com/th/id/R.b516d286e69059b4d0a46d892895e09d?rik=6%2baDAwgk2FKoIg&riu=http%3a%2f%2fianfu.org%2fassets%2fimg%2fimage01.jpg&ehk=3fTjpPGbG693O3iPcYMLfs4HYz7llJbj5vjDy3u22%2fI%3d&risl=&pid=ImgRaw&r=0",
+  "altText": "The 'Comfort Women' of WWII",
+  "detailed_description": "The so-called 'Comfort Women' system was one of the largest systematic campaigns of sexual enslavement in history. Between 1932 and 1945, an estimated 200,000 to 400,000 women, predominantly from Korea but also from China, the Philippines, Indonesia, and other occupied territories, were coerced or deceived into sexual slavery by the Imperial Japanese military. These women were forced to work in military brothels euphemistically called 'comfort stations' that followed Japanese troops throughout their occupied territories.",
+  "metrics": {
+    "estimated_victims": "200,000-400,000",
+    "primary_origin": "Korea",
+    "duration_years": 13,
+    "territories_affected": ["Korea", "China", "Philippines", "Indonesia", "Malaya", "Burma", "Thailand"],
+    "age_range": "14-40 years old",
+    "survival_rate": "50-60%"
+  },
+  "impact": {
+    "health_consequences": "STIs, reproductive damage, chronic pain, PTSD",
+    "long_term_effects": "Infertility, cancer, social ostracism, intergenerational trauma",
+    "psychological_impact": "Severe trauma, suicide rates significantly higher among survivors",
+    "social_stigma": "Survivors faced severe social discrimination and were often rejected by their families and communities"
+  },
+  "historical_context": "Japan's imperial expansion sought to maintain troop morale and reduce soldiers' reliance on local populations for sexual services, which caused uncontrolled violence and disease. The system was designed to be systematic, controlled, and centralized.",
+  "recognition_timeline": [
+    "1942-1945: Comfort stations operate throughout Japanese-occupied territories",
+    "1945: End of WWII; many records destroyed and system dismantled",
+    "1991: First public testimony by survivor Kim Hak-sun",
+    "1993: Japanese government acknowledges system existence",
+    "1996: UN report describes system as crimes against humanity",
+    "2015: Japan-South Korea agreement (subsequently disputed)",
+    "2020: Japanese government loses defamation suit brought by survivor"
+  ],
+  "current_status": "Advocacy groups continue to seek full justice and reparations; Most survivors have passed away with limited compensation provided",
+  "references": [
+    "The Comfort Women Speak: Testimony by Sex Slaves of the Japanese Military",
+    "Yoshimi Yoshaki, 'Comfort Women': Sexual Slavery in the Japanese Military during World War II",
+    "United Nations Special Rapporteur Report on Sexual Slavery (1996)"
+  ]
+}

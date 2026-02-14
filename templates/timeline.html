@@ -48,6 +48,7 @@
                 events.forEach((event, index) => {
                     const timelineItem = document.createElement('div');
                     timelineItem.className = 'timeline-item';
+                    timelineItem.setAttribute('data-event-id', event.id);
                     
                     // Add alternate class for even indices
                     if (index % 2 === 0) {
@@ -67,18 +68,38 @@
                         </div>
                         <div class="timeline-right">
                             <div class="${marginClass}">
-                                <div class="timeline-text">
+                                <div class="timeline-text clickable-element">
                                     ${event.text}
                                 </div>
                             </div>
-                            <div class="timeline-description">
+                            <div class="timeline-description clickable-element">
                                 ${event.description}
                             </div>
-                            <div class="timeline-image-wrapper">
+                            <div class="timeline-image-wrapper clickable-element">
                                 <img src="${event.image}" loading="lazy" alt="${event.altText}" />
                             </div>
                         </div>
                     `;
+
+                    // Add click handlers to clickable elements
+                    const clickableElements = timelineItem.querySelectorAll('.clickable-element');
+                    clickableElements.forEach(element => {
+                        element.style.cursor = 'pointer';
+                        element.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            window.location.href = `/event/${event.id}`;
+                        });
+
+                        // Add hover effect
+                        element.addEventListener('mouseenter', () => {
+                            element.style.opacity = '0.8';
+                            element.style.transition = 'opacity 0.3s ease';
+                        });
+
+                        element.addEventListener('mouseleave', () => {
+                            element.style.opacity = '1';
+                        });
+                    });
                     
                     // Insert before the overlay divs
                     const overlayTop = timelineComponent.querySelector('.overlay-fade-top');

@@ -1,0 +1,55 @@
+{
+  "id": "partition_india",
+  "title": "The Partition of India",
+  "date": "1947",
+  "summary": "The division of British India led to one of the worst human tragedies of the twentieth century, with violence, displacement, and mass casualties occurring across the subcontinent.",
+  "image": "https://th.bing.com/th/id/OIP.REUccd51MF_qhqXPD93wDgHaE4?w=296&h=196&c=7&r=0&o=7&pid=1.7&rm=3",
+  "altText": "The Partition of India",
+  "detailed_description": "The Partition of India in 1947 marked the end of British colonial rule but also triggered unprecedented communal violence. The division of British India into the independent nations of India and Pakistan, along with the creation of East Pakistan (now Bangladesh), resulted in one of the largest mass migrations and communal violence in human history. Millions were displaced, and sexual violence became a weapon used by communal groups against women and children.",
+  "metrics": {
+    "estimated_deaths": "200,000-2,000,000",
+    "displaced_persons": "10-20 million",
+    "women_sexually_assaulted": "75,000-400,000",
+    "children_abducted": "25,000-50,000",
+    "missing_persons": "Over 1 million reported",
+    "duration_months": 18,
+    "affected_regions": ["Punjab", "Bengal", "Bihar", "Delhi", "United Provinces"]
+  },
+  "impact": {
+    "immediate_casualties": "Estimates vary widely; between 200,000 to 2 million deaths",
+    "communal_violence": "Systematic targeting of religious and ethnic minorities",
+    "sexual_violence": "Mass rape campaigns against women, particularly targeting minority religious groups",
+    "child_trafficking": "Thousands of children separated from families or trafficked",
+    "psychological_trauma": "Intergenerational trauma affecting millions across South Asia",
+    "economic_disruption": "Complete collapse of local economies in border regions"
+  },
+  "detailed_analysis": {
+    "causes": "British colonial withdrawal without adequate planning; religious nationalism; economic competition; colonial policies that exacerbated communal tensions",
+    "perpetrators": "Hindu, Muslim, and Sikh communal groups; local police; military forces; vigilante groups",
+    "victims": "Primarily religious minorities in affected regions; women and children most vulnerable"
+  },
+  "recognition_timeline": [
+    "June 1947: Mountbatten Plan announced division of India",
+    "August 15, 1947: India gains independence",
+    "August 14, 1947: Pakistan established as independent state",
+    "September 1947 - 1948: Major communal violence in Punjab and Bengal",
+    "1949: India adopts Constitution; rehabilitation programs begin",
+    "1950s-1960s: Rehabilitation commissions established; survivor testimonies recorded",
+    "1989: Oral histories and survivor accounts begin extensive documentation",
+    "2000s: International scholarly attention increases; survivor narratives published",
+    "Present: Ongoing debates about responsibility and remembrance"
+  ],
+  "survivor_recovery": {
+    "rehabilitation_efforts": "Government rehabilitation programs; limited compensation",
+    "psychological_support": "Minimal during immediate aftermath; increased focus in recent decades",
+    "missing_persons": "Many never reunited with families",
+    "adoption_records": "Thousands of separated children without tracing records"
+  },
+  "current_status": "Partition remains a sensitive historical topic in the region; Multiple commissions and truth projects ongoing; Memorials and museums established; Survivors' testimonies being documented for historical record",
+  "references": [
+    "Upamanyu Chatterjee, Bandhan, Unbandhan: Gender, Home and Nation",
+    "Bapsi Sidhwa, Cracking India (fiction based on partition violence)",
+    "Ravinder Kaur, Partition and the Indian Diaspora",
+    "Ritu Menon and Kamla Bhasin, Borders and Boundaries: Women in India's Partition"
+  ]
+}
